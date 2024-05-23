@@ -1,0 +1,69 @@
+﻿@model EquipesModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html5>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="~/css/site.css">
+    </head>
+    <body>
+        <h1>Equipes Fórmula 1 2024</h1>
+        <div id="containerPanel" class="containerPanel" hidden="true">
+            <div class="informacoes">
+                <strong>Equipe: </strong>
+                @Model.NomeEquipe
+                <strong>Chefe:  </strong>
+                @Model.NomeChefe
+                <strong>Piloto: </strong>
+                @Model.NomePiloto1
+                <strong>Piloto: </strong>
+                @Model.NomePiloto2
+                <strong>Carro:  </strong>
+                @Model.Modelo
+            </div>
+            
+            @* <img class="imgCard" src="img/FundoBranco.png" alt="Avatar" > *@
+        </div>
+        <div class="imgContainerGeral">
+            <div class="imgContainerDireita">
+                <div>
+                    <img id="Alpine" src="img/F1_Alpine.png" class="imgContainer" alt="logo" onClick="OpenPag(Alpine)" />
+                </div>
+                <div>
+                    <img id="AstonMartin" src="img/F1_AstonMartin.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_Mercedes.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_RedBull.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_Williams.png" class="imgContainer" alt="logo" />
+                </div>
+            </div>
+            <div class="imgContainerEsquerda">
+                <div>
+                    <img src="img/F1_Ferrari.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_Haas.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_Mclaren.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_Stake.png" class="imgContainer" alt="logo" />
+                </div>
+                <div>
+                    <img src="img/F1_VisaRB.png" class="imgContainer" alt="logo" />
+                </div>
+            </div>
+            
+        </div>
+
+        <script src="~/js/site.js"></script>
+    </body>
+</html5>
