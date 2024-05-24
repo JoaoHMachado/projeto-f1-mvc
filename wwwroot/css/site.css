@@ -45,8 +45,8 @@ code {
     margin-top: 100px;
 }
 
-.containerPanel {    
-    box-shadow: 0 15px 15px 0 rgb(193 49 49 / 40%)
+.containerPanel {
+    /*box-shadow: 0 15px 15px 0 rgb(193 49 49 / 40%)*/
 }
 
 .imgCard {
@@ -69,4 +69,7 @@ code {
     line-height: 28px;
     color: #303030;
     font-weight: 400;
+}
+.cor-alpine {
+
 }

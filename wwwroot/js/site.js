@@ -1,4 +1,6 @@
-﻿let i = 0
+﻿
+
+let i = 0
 
 const BtnInserir = document.getElementById("Btn_Inserir")
 const Compras = document.getElementById("Compras")
@@ -44,7 +46,8 @@ function SetText() {
 }
 
 function OpenPag(pId) {
-    var element = document.getElementById(pId);
-    console.log(pId); // Isso imprimirá o ID do elemento no console do navegador
-    document.getElementById("containerPanel").hidden = false; // Altera a visibilidade do elemento containerPanel para mostrar
+    window.location.href = `/?IdEquipe=${pId}`
+    // Seleciona o primeiro elemento com a classe .containerPanel
+    const containerPanel = document.querySelector('.containerPanel');
+
 }

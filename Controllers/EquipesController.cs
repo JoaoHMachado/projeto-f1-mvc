@@ -19,7 +19,7 @@ namespace ProjetoMVC.Controllers
         [HttpGet(template:"")]
         public IActionResult Equipes(int IdEquipe)
         {
-            IdEquipe = 1;
+            //IdEquipe = 1;
             var buscaEquipe = new EquipesModel();
             using var connection = new SqlConnection("Data Source=Note-JP;Initial Catalog=Formula1;User ID=sa;Password=toppen;Trust Server Certificate=True");
             connection.Open();
