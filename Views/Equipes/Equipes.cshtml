@@ -1,60 +1,76 @@
 ﻿@model EquipesModel
 @{
     ViewData["Title"] = "Home Page";
-    string BoxShadow()
+   
+    string Esconder()
     {
-        var corBoxShadow = "";
+        return string.IsNullOrEmpty(Model.EquipeID) ? "none" : "block";
+    }
+
+    ScuderiaModel GetScuderia()
+    {
+        var retornoScuderia = new ScuderiaModel();
         if (Model.EquipeID == "1")
         {
-            corBoxShadow = "0 15px 15px 0 #0008ff";
+            retornoScuderia.ImagemPilotos  = "/img/Pilotos_RedBull.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_RedBull.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #0008ff";
         }
-        if (Model.EquipeID == "2")
+        else if (Model.EquipeID == "2")
         {
-            corBoxShadow = "0 15px 15px 0 #00fffb";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_Mercedes.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_Mercedes.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #00fffb";
         }
-        if (Model.EquipeID == "3")
+        else if (Model.EquipeID == "3")
         {
-            corBoxShadow = "0 15px 15px 0 #ff5900";
-        }
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_McLaren.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_McLaren.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #ff5900";
+        }        
         if (Model.EquipeID == "4")
         {
-            corBoxShadow = "0 15px 15px 0 #0062ff";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_VisaRB.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_VisaRB.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #0062ff";
         }
         if (Model.EquipeID == "5")
         {
-            corBoxShadow = "0 15px 15px 0 #00ff40";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_Stake.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_Stake.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #00ff40";
         }
         if (Model.EquipeID == "6")
         {
-            corBoxShadow = "0 15px 15px 0 #00ff40";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_AstonMartin.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_AstonMartin.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #83c3a7";
         }
         if (Model.EquipeID == "7")
         {
-            corBoxShadow = "0 15px 15px 0 #000000";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_Haas.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_Haas.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #000000";
         }
         if (Model.EquipeID == "8")
         {
-            corBoxShadow = "0 15px 15px 0 #0055ff";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_Alpine.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_Alpine.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #0055ff";
         }
         if (Model.EquipeID == "9")
         {
-            corBoxShadow = "0 15px 15px 0 #0055ff";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_Willians.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_Willians.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #0055ff";
         }
         if (Model.EquipeID == "10")
         {
-            corBoxShadow = "0 15px 15px 0 #ff0000";
+            retornoScuderia.ImagemPilotos = "/img/Pilotos_Ferrari.jpg";
+            retornoScuderia.ImagemScuderia = "/img/Scuderia_Ferrari.jpg";
+            retornoScuderia.CorScuderia = "0 15px 15px 0 #ff0000";
         }
-        return corBoxShadow;
-    }
-    string Esconder()
-    {
-        //
-        //
-        ///
-
-        // Verifica se o elemento foi encontrado
-        
-        return string.IsNullOrEmpty(Model.EquipeID) ? "none" : "block";
+        return retornoScuderia;
     }
 }
 
@@ -62,27 +78,30 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="~/css/site.css">
+
     </head>
     <body>
         <h1>Equipes Fórmula 1 2024</h1>
-
-        <div id="containerPanel" class="containerPanel cor-alpine" style="display: @Esconder(); box-shadow: @BoxShadow()">
+        <div id="containerPanel" class="containerPanel cor-alpine" style="display: @Esconder(); box-shadow: @GetScuderia().CorScuderia">
             <div class="informacoes">
+                <div class="card-img-top">
+                    <img id="" src="@GetScuderia().ImagemScuderia" class="imgLogoScuderia" alt="logo" />
+                    <img id="" src="@GetScuderia().ImagemPilotos" class="imgPilotos" alt="logo" />
+                </div>
                 <strong>Equipe: </strong>
-                @Model.NomeEquipe
+                <span>@Model.NomeEquipe</span>
                 <strong>Chefe:  </strong>
-                @Model.NomeChefe
+                <span>@Model.NomeChefe</span>
                 <strong>Piloto: </strong>
-                @Model.NomePiloto1, @Model.NacionalidadePiloto1
+                <span>@Model.NomePiloto1, @Model.NacionalidadePiloto1</span>
                 <strong>Piloto: </strong>
-                @Model.NomePiloto2, @Model.NacionalidadePiloto2
+                <span>@Model.NomePiloto2, @Model.NacionalidadePiloto2</span>
                 <strong>Carro:  </strong>
-                @Model.Modelo
+                <span>@Model.Modelo</span>
                 <strong>Construtor: </strong>
-                @Model.Construtor
+                <span>@Model.Construtor</span>
                 <strong>Motor: </strong>
-                @Model.Motor
-
+                <span>@Model.Motor</span>
             </div>
             
             @* <img class="imgCard" src="img/FundoBranco.png" alt="Avatar" > *@
@@ -124,7 +143,6 @@
             </div>
             
         </div>
-
-        <script src="~/js/site.js"></script>
+        <script  src="~/js/site.js" > </script>
     </body>
 </html5>
