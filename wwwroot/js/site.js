@@ -1,5 +1,8 @@
 ﻿
 
+
+
+
 let i = 0
 
 const BtnInserir = document.getElementById("Btn_Inserir")
@@ -49,6 +52,6 @@ function OpenPag(pId) {
     window.location.href = `/?IdEquipe=${pId}`
     // Seleciona o primeiro elemento com a classe .containerPanel
     const containerPanel = document.querySelector('.containerPanel');
-
+    
 }
 

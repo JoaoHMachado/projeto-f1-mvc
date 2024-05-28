@@ -1,12 +1,11 @@
 ﻿@model EquipesModel
 @{
     ViewData["Title"] = "Home Page";
-   
+
     string Esconder()
     {
-        return string.IsNullOrEmpty(Model.EquipeID) ? "none" : "block";
+        return string.IsNullOrEmpty(Model.EquipeID) ? "none" : "flex";
     }
-
     ScuderiaModel GetScuderia()
     {
         var retornoScuderia = new ScuderiaModel();
@@ -72,41 +71,53 @@
         }
         return retornoScuderia;
     }
+
+    
 }
 
 <html5>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="~/css/site.css">
-
     </head>
     <body>
-        <h1>Equipes Fórmula 1 2024</h1>
-        <div id="containerPanel" class="containerPanel cor-alpine" style="display: @Esconder(); box-shadow: @GetScuderia().CorScuderia">
-            <div class="informacoes">
-                <div class="card-img-top">
-                    <img id="" src="@GetScuderia().ImagemScuderia" class="imgLogoScuderia" alt="logo" />
-                    <img id="" src="@GetScuderia().ImagemPilotos" class="imgPilotos" alt="logo" />
-                </div>
-                <strong>Equipe: </strong>
-                <span>@Model.NomeEquipe</span>
-                <strong>Chefe:  </strong>
-                <span>@Model.NomeChefe</span>
-                <strong>Piloto: </strong>
-                <span>@Model.NomePiloto1, @Model.NacionalidadePiloto1</span>
-                <strong>Piloto: </strong>
-                <span>@Model.NomePiloto2, @Model.NacionalidadePiloto2</span>
-                <strong>Carro:  </strong>
-                <span>@Model.Modelo</span>
-                <strong>Construtor: </strong>
-                <span>@Model.Construtor</span>
-                <strong>Motor: </strong>
-                <span>@Model.Motor</span>
-            </div>
-            
-            @* <img class="imgCard" src="img/FundoBranco.png" alt="Avatar" > *@
-        </div>
+        <h1>Equipes Fórmula 1 2024</h1>       
+            @* <img class="imgCard" src="img/FundoBranco.png" alt="Avatar" > *@        
         <div class="imgContainerGeral">
+            <div id="containerPanel" class="containerPanel" style="display: @Esconder(); box-shadow: @GetScuderia().CorScuderia">
+                <div class="informacoes">
+                    <div class="card-img-top">
+                        <img id="" src="@GetScuderia().ImagemScuderia" class="imgLogoScuderia" alt="logo" />
+                        <img id="" src="@GetScuderia().ImagemPilotos" class="imgPilotos" alt="logo" />
+                    </div>
+                    <div class="container-geral-dados">
+                        <div class="container-dados">
+                            <strong>Equipe: </strong>
+                            <span>@Model.NomeEquipe</span>
+                            <strong>Chefe:  </strong>
+                            <span>@Model.NomeChefe</span>
+                            <strong>Piloto: </strong>
+                            <span>@Model.NomePiloto1, @Model.NacionalidadePiloto1</span>
+                            <strong>Piloto: </strong>
+                            <span>@Model.NomePiloto2, @Model.NacionalidadePiloto2</span>
+                            <strong>Carro:  </strong>
+                            <span>@Model.Modelo</span>
+                            <strong>Construtor: </strong>
+                            <span>@Model.Construtor</span>
+                            <strong>Motor: </strong>
+                            <span>@Model.Motor</span>
+                        </div>
+                        <div class="container-icones">
+                            <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos:</strong>
+                            <span>82</span>
+                            <strong><img id="" src="~/img/Ico_Bandeirada.png" class="" alt="logo" /> Corridas:</strong>
+                            <span>75</span>
+                            <strong><img id="" src="~/img/Ico_Pilotos.png" class="" alt="logo" /> Pilotos Históricos:</strong>
+                            <span>Lewis, João, Leclerc</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="imgContainerDireita">
                 <div>
                     <img id="Alpine" src="img/F1_Alpine.png" class="imgContainer" alt="logo" onClick="OpenPag(8)"/>
@@ -143,6 +154,7 @@
             </div>
             
         </div>
-        <script  src="~/js/site.js" > </script>
+        <script  src="~/js/site.js"> </script>
+        
     </body>
 </html5>
