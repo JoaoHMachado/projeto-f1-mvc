@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "D:\\AulasLF\\ProjetoMVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\views\\equipes\\equipes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:views\\equipes\\equipes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\models\\equipesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:models\\equipesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\classes\\getwikipedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:classes\\getwikipedia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\classes\\updateequipes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:classes\\updateequipes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|d:\\aulaslf\\projetomvc\\controllers\\equipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC7E48B1-6CA3-42B3-B702-730DC30C0FEC}|ProjetoMVC.csproj|solutionrelative:controllers\\equipescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,6 +47,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "D:\\AulasLF\\ProjetoMVC\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-05-29T16:20:35.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "D:\\AulasLF\\ProjetoMVC\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAHcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-29T16:17:11.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Equipes.cshtml",
+              "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\Views\\Equipes\\Equipes.cshtml",
+              "RelativeDocumentMoniker": "Views\\Equipes\\Equipes.cshtml",
+              "ToolTip": "D:\\AulasLF\\ProjetoMVC\\Views\\Equipes\\Equipes.cshtml",
+              "RelativeToolTip": "Views\\Equipes\\Equipes.cshtml",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAA0AAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T15:46:32.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EquipesModel.cs",
+              "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\Models\\EquipesModel.cs",
+              "RelativeDocumentMoniker": "Models\\EquipesModel.cs",
+              "ToolTip": "D:\\AulasLF\\ProjetoMVC\\Models\\EquipesModel.cs",
+              "RelativeToolTip": "Models\\EquipesModel.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAIwBQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T15:43:09.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EquipesController.cs",
+              "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\Controllers\\EquipesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EquipesController.cs",
+              "ToolTip": "D:\\AulasLF\\ProjetoMVC\\Controllers\\EquipesController.cs",
+              "RelativeToolTip": "Controllers\\EquipesController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowDEAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T13:50:28.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UpdateEquipes.cs",
+              "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\Classes\\UpdateEquipes.cs",
+              "RelativeDocumentMoniker": "Classes\\UpdateEquipes.cs",
+              "ToolTip": "D:\\AulasLF\\ProjetoMVC\\Classes\\UpdateEquipes.cs",
+              "RelativeToolTip": "Classes\\UpdateEquipes.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAD4vykAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T13:51:42.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -35,13 +137,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "GetWikipedia.cs",
               "DocumentMoniker": "D:\\AulasLF\\ProjetoMVC\\Classes\\GetWikipedia.cs",
               "RelativeDocumentMoniker": "Classes\\GetWikipedia.cs",
               "ToolTip": "D:\\AulasLF\\ProjetoMVC\\Classes\\GetWikipedia.cs",
               "RelativeToolTip": "Classes\\GetWikipedia.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA4AAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAlwBYAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-28T18:26:32.546Z",
               "EditorCaption": ""

@@ -13,77 +13,85 @@
         {
             retornoScuderia.ImagemPilotos  = "/img/Pilotos_RedBull.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_RedBull.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #0008ff";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #0008ff";
         }
         else if (Model.EquipeID == "2")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Mercedes.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Mercedes.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #00fffb";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #00fffb";
         }
         else if (Model.EquipeID == "3")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_McLaren.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_McLaren.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #ff5900";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #ff5900";
         }        
         if (Model.EquipeID == "4")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_VisaRB.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_VisaRB.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #0062ff";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #0062ff";
         }
         if (Model.EquipeID == "5")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Stake.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Stake.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #00ff40";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #00ff40";
         }
         if (Model.EquipeID == "6")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_AstonMartin.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_AstonMartin.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #83c3a7";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #83c3a7";
         }
         if (Model.EquipeID == "7")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Haas.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Haas.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #000000";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #000000";
         }
         if (Model.EquipeID == "8")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Alpine.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Alpine.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #0055ff";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #0055ff";
         }
         if (Model.EquipeID == "9")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Willians.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Willians.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #0055ff";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #0055ff";
         }
         if (Model.EquipeID == "10")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Ferrari.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Ferrari.jpg";
-            retornoScuderia.CorScuderia = "0 15px 15px 0 #ff0000";
+            retornoScuderia.CorScuderia = "3px 5px 5px 1px #ff0000";
         }
         return retornoScuderia;
     }
-
-    
 }
-
 <html5>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="~/css/site.css">
+        <style>
+            .loading{
+                height: 100vh;
+                background-color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center
+            }
+        </style>
     </head>
     <body>
-        <h1>Equipes Fórmula 1 2024</h1>       
-            @* <img class="imgCard" src="img/FundoBranco.png" alt="Avatar" > *@        
-        <div class="imgContainerGeral">
+        <div id="loading" class="loading">
+            <img id="" src="/img/Loading_animation.gif" class="imgLoading" alt="logo" />
+        </div>
+        <h1 class="titulo" style="display: none">Equipes Fórmula 1 2024</h1>
+        <div class="imgContainerGeral" >
             <div id="containerPanel" class="containerPanel" style="display: @Esconder(); box-shadow: @GetScuderia().CorScuderia">
                 <div class="informacoes">
                     <div class="card-img-top">
@@ -108,12 +116,20 @@
                             <span>@Model.Motor</span>
                         </div>
                         <div class="container-icones">
-                            <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos:</strong>
-                            <span>82</span>
-                            <strong><img id="" src="~/img/Ico_Bandeirada.png" class="" alt="logo" /> Corridas:</strong>
-                            <span>75</span>
-                            <strong><img id="" src="~/img/Ico_Pilotos.png" class="" alt="logo" /> Pilotos Históricos:</strong>
-                            <span>Lewis, João, Leclerc</span>
+                            <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos Construtores:</strong>
+                            <span>@Model.TitulosConstrutores</span>
+                            <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos Pilotos:</strong>
+                            <span>@Model.TitulosPilotos</span>
+                            <strong><img id="" src="~/img/Ico_Bandeirada.png" class="" alt="logo" /> GrandesPremios:</strong>
+                            <span>@Model.GrandesPremios</span>
+                            <strong><img id="" src="~/img/Ico_Vitorias.png" class="" alt="logo" /> Vitórias:</strong>
+                            <span>@Model.Vitorias</span>
+                            <strong><img id="" src="~/img/Ico_Podios.png" class="" alt="logo" /> Pódios:</strong>
+                            <span>@Model.Podios</span>
+                            <strong><img id="" src="~/img/Ico_PolePosition.png" class="" alt="logo" /> Pole Position:</strong>
+                            <span>@Model.PolePosition</span>
+                            <strong><img id="" src="~/img/Ico_VoltaRapida.png" class="" alt="logo" /> Voltas Rápidas:</strong>
+                            <span>@Model.VoltasRapidas</span>
                         </div>
                     </div>
                 </div>
@@ -154,7 +170,6 @@
             </div>
             
         </div>
-        <script  src="~/js/site.js"> </script>
-        
+        <script src="~/js/site.js"></script>        
     </body>
 </html5>

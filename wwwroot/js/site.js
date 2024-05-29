@@ -1,8 +1,31 @@
-﻿
+﻿const audio = new Audio('../audio/F1_Car_Sound.mp3');
+setTimeout(() => {
+    var widthBody = document.querySelector("Body").clientWidth;
+    var heightBody = document.querySelector("Body").clientHeight;
 
 
+    var loadingElement = document.getElementById("loading");
 
+    loadingElement.style.width = widthBody + 'px';
+    loadingElement.style.height = heightBody + 'px';
 
+    if (loadingElement) {
+        loadingElement.remove();
+    }
+    // Alterar o estilo de exibição do elemento com a classe "imgContainerGeral"
+    var imgContainerGeral = document.querySelector(".imgContainerGeral");
+    var titulo = document.querySelector(".titulo");
+
+    if (imgContainerGeral) {
+        imgContainerGeral.style.display = "flex";
+        titulo.style.display = "block";
+    }
+}, 4000  , audio.play());
+/*
+window.addEventListener('load', () => {
+    audio.play();
+});
+*/
 let i = 0
 
 const BtnInserir = document.getElementById("Btn_Inserir")
@@ -54,4 +77,3 @@ function OpenPag(pId) {
     const containerPanel = document.querySelector('.containerPanel');
     
 }
-

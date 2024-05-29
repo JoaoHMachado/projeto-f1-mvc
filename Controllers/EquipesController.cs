@@ -29,17 +29,23 @@ namespace ProjetoMVC.Controllers
 
             if (dataReader.Read())
             {
-                buscaEquipe.EquipeID =  dataReader["EquipeID"].ToString();
-                buscaEquipe.NomeEquipe = dataReader["NomeEquipe"].ToString();
-                buscaEquipe.Construtor = dataReader["Construtor"].ToString();
-                buscaEquipe.NomeChefe = dataReader["NomeChefe"].ToString();
-                buscaEquipe.NomePiloto1 = dataReader["NomePiloto1"].ToString();
+                buscaEquipe.EquipeID             =  dataReader["EquipeID"].ToString();
+                buscaEquipe.NomeEquipe           = dataReader["NomeEquipe"].ToString();
+                buscaEquipe.Construtor           = dataReader["Construtor"].ToString();
+                buscaEquipe.NomeChefe            = dataReader["NomeChefe"].ToString();
+                buscaEquipe.NomePiloto1          = dataReader["NomePiloto1"].ToString();
                 buscaEquipe.NacionalidadePiloto1 = dataReader["NacionalidadePiloto1"].ToString();
-                buscaEquipe.NomePiloto2 = dataReader["NomePiloto2"].ToString();
+                buscaEquipe.NomePiloto2          = dataReader["NomePiloto2"].ToString();
                 buscaEquipe.NacionalidadePiloto2 = dataReader["NacionalidadePiloto2"].ToString();
-                buscaEquipe.Modelo = dataReader["Modelo"].ToString();
-                buscaEquipe.Motor = dataReader["Motor"].ToString();
-
+                buscaEquipe.Modelo               = dataReader["Modelo"].ToString();
+                buscaEquipe.Motor                = dataReader["Motor"].ToString();
+                buscaEquipe.GrandesPremios       = dataReader["QtdGrandesPremios"].ToString();
+                buscaEquipe.TitulosConstrutores  = dataReader["QtdTitulosConstrutores"].ToString();
+                buscaEquipe.TitulosPilotos       = dataReader["QtdTitulosPilotos"].ToString();
+                buscaEquipe.Vitorias             = dataReader["QtdVitorias"].ToString();
+                buscaEquipe.Podios               = dataReader["QtdPodios"].ToString();
+                buscaEquipe.PolePosition         = dataReader["QtdPolePosition"].ToString();
+                buscaEquipe.VoltasRapidas        = dataReader["QtdVoltasRapidas"].ToString();
             }
             return View(buscaEquipe);
         }

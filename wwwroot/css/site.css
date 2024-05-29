@@ -1,7 +1,7 @@
 
 body {
     background-color: white;
-    padding-bottom: 500px;
+    /*padding-bottom: 500px;*/
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -43,10 +43,11 @@ code {
 }
 
 .imgContainerGeral {
-    display: flex;
+    display: none;
     justify-content: center;
     margin-top: 50px;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 
@@ -113,6 +114,11 @@ strong, span{
 }
 
 .containerPanel {
-    height: 696px;
-    width: 696px;
+    height: 750px;
+    width: 750px;
+}
+
+.imgLoading {
+    max-width: 15%;
+    max-height: 15%; 
 }
