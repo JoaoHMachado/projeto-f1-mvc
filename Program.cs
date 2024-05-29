@@ -1,7 +1,14 @@
+using ProjetoMVC.Classes;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.AddHostedService<GetWikipedia>();
+
+GetWikipedia getWikipedia = new GetWikipedia();
+
+await getWikipedia.GetDadosWikipedia();
 
 var app = builder.Build();
 
@@ -25,3 +32,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
