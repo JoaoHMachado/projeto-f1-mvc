@@ -1,8 +1,11 @@
 ﻿const audio = new Audio('../audio/F1_Car_Sound.mp3');
+
+
+
+
 setTimeout(() => {
     var widthBody = document.querySelector("Body").clientWidth;
     var heightBody = document.querySelector("Body").clientHeight;
-
 
     var loadingElement = document.getElementById("loading");
 
@@ -21,11 +24,12 @@ setTimeout(() => {
         titulo.style.display = "block";
     }
 }, 4000  , audio.play());
-/*
+
 window.addEventListener('load', () => {
     audio.play();
+
 });
-*/
+
 let i = 0
 
 const BtnInserir = document.getElementById("Btn_Inserir")
@@ -72,7 +76,7 @@ function SetText() {
 }
 
 function OpenPag(pId) {
-    window.location.href = `/?IdEquipe=${pId}`
+    window.location.href = `/?pIdEquipe=${pId}`
     // Seleciona o primeiro elemento com a classe .containerPanel
     const containerPanel = document.querySelector('.containerPanel');
     

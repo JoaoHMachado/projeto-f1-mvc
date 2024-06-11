@@ -7,16 +7,12 @@ using System.Collections.Generic;
 
 namespace ProjetoMVC.Classes
 {
-    public class GetWikipedia
+    public class GetWikipedia : BackgroundService
     {
-        public async Task<string> GetDadosWikipedia()
+        public async Task GetDadosWikipedia()
         {
             try
             {
-                /*
-                var Status = "Realizando o scraping...";
-                Table = [];
-                */
                 
                 var links = new List<string>
                 {
@@ -32,14 +28,12 @@ namespace ProjetoMVC.Classes
                     $"https://pt.wikipedia.org/wiki/Scuderia_Ferrari"  
                 };
                 var countLinks = 0;
-                Console.WriteLine(countLinks);
                 foreach (var link in links)
                 {
                     countLinks++;
                     if (countLinks > links.Count()) break;
                     var chegueiPrimeiroDado = false;
                     var chegueiUltimoDado = false;
-                    Console.WriteLine(link);
                     HttpClient httpClient = new HttpClient();
                     var html = new HtmlDocument();
                     var textResponse = await httpClient.GetStringAsync(link);
@@ -49,7 +43,6 @@ namespace ProjetoMVC.Classes
                     var document = html.DocumentNode;
 
                     var trs = document.QuerySelectorAll("table.infobox tr");
-                    Console.WriteLine(trs);
                     foreach (var tr in trs)
                     {
                         if (chegueiUltimoDado) break;
@@ -84,15 +77,21 @@ namespace ProjetoMVC.Classes
                         }
                     }                    
                 }
-                return "";
             }
             catch (Exception ex)
             {
-                return "";
+
             }
 
         }
-    }
 
-   
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                await GetDadosWikipedia();
+                await Task.Delay(60000 * 60 * 24);
+            }
+        }
+    }
 }

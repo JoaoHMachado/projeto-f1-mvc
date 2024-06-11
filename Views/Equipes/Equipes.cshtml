@@ -1,69 +1,69 @@
-﻿@model EquipesModel
+﻿@model ProjetoMVC.DTO.EquipeModelo
 @{
     ViewData["Title"] = "Home Page";
 
     string Esconder()
     {
-        return string.IsNullOrEmpty(Model.EquipeID) ? "none" : "flex";
+        return string.IsNullOrEmpty(Model.Equipe?.IdEquipe.ToString()) ? "none" : "flex";
     }
     ScuderiaModel GetScuderia()
     {
         var retornoScuderia = new ScuderiaModel();
-        if (Model.EquipeID == "1")
+        if (Model.Equipe?.IdEquipe.ToString() == "1")
         {
             retornoScuderia.ImagemPilotos  = "/img/Pilotos_RedBull.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_RedBull.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #0008ff";
         }
-        else if (Model.EquipeID == "2")
+        else if (Model.Equipe?.IdEquipe.ToString() == "2")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Mercedes.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Mercedes.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #00fffb";
         }
-        else if (Model.EquipeID == "3")
+        else if (Model.Equipe?.IdEquipe.ToString() == "3")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_McLaren.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_McLaren.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #ff5900";
         }        
-        if (Model.EquipeID == "4")
+        if (Model.Equipe?.IdEquipe.ToString() == "4")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_VisaRB.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_VisaRB.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #0062ff";
         }
-        if (Model.EquipeID == "5")
+        if (Model.Equipe?.IdEquipe.ToString() == "5")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Stake.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Stake.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #00ff40";
         }
-        if (Model.EquipeID == "6")
+        if (Model.Equipe?.IdEquipe.ToString() == "6")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_AstonMartin.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_AstonMartin.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #83c3a7";
         }
-        if (Model.EquipeID == "7")
+        if (Model.Equipe?.IdEquipe.ToString() == "7")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Haas.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Haas.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #000000";
         }
-        if (Model.EquipeID == "8")
+        if (Model.Equipe?.IdEquipe.ToString() == "8")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Alpine.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Alpine.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #0055ff";
         }
-        if (Model.EquipeID == "9")
+        if (Model.Equipe?.IdEquipe.ToString() == "9")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Willians.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Willians.jpg";
             retornoScuderia.CorScuderia = "3px 5px 5px 1px #0055ff";
         }
-        if (Model.EquipeID == "10")
+        if (Model.Equipe?.IdEquipe.ToString() == "10")
         {
             retornoScuderia.ImagemPilotos = "/img/Pilotos_Ferrari.jpg";
             retornoScuderia.ImagemScuderia = "/img/Scuderia_Ferrari.jpg";
@@ -72,25 +72,10 @@
         return retornoScuderia;
     }
 }
-<html5>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="~/css/site.css">
-        <style>
-            .loading{
-                height: 100vh;
-                background-color: black;
-                display: flex;
-                align-items: center;
-                justify-content: center
-            }
-        </style>
-    </head>
-    <body>
         <div id="loading" class="loading">
             <img id="" src="/img/Loading_animation.gif" class="imgLoading" alt="logo" />
         </div>
-        <h1 class="titulo" style="display: none">Equipes Fórmula 1 2024</h1>
+        <h1 class="titulo" style="display: none"><img id="" src="/img/Logo_F1.png" alt="logo" class="imgLogoF1"/></h1>
         <div class="imgContainerGeral" >
             <div id="containerPanel" class="containerPanel" style="display: @Esconder(); box-shadow: @GetScuderia().CorScuderia">
                 <div class="informacoes">
@@ -101,35 +86,40 @@
                     <div class="container-geral-dados">
                         <div class="container-dados">
                             <strong>Equipe: </strong>
-                            <span>@Model.NomeEquipe</span>
+                            <span>@Model.Equipe?.NomeEquipe</span>
                             <strong>Chefe:  </strong>
-                            <span>@Model.NomeChefe</span>
-                            <strong>Piloto: </strong>
-                            <span>@Model.NomePiloto1, @Model.NacionalidadePiloto1</span>
-                            <strong>Piloto: </strong>
-                            <span>@Model.NomePiloto2, @Model.NacionalidadePiloto2</span>
+                            <span>@Model.Chefes?.NomeChefe</span>
+                    @{
+                        if (Model.Pilotos != null)
+                        {
+                            foreach (var piloto in Model.Pilotos)
+                            {
+                                <strong>Piloto: </strong>
+                                <span>@piloto.NomePiloto, @piloto.NacionalidadePiloto</span>
+                            }
+                        }                       
+
+                    }
                             <strong>Carro:  </strong>
-                            <span>@Model.Modelo</span>
+                            <span>@Model.Carros?.ModeloCarro</span>
                             <strong>Construtor: </strong>
-                            <span>@Model.Construtor</span>
-                            <strong>Motor: </strong>
-                            <span>@Model.Motor</span>
+                            <span>@Model.Carros?.FabricanteMotor</span>
                         </div>
                         <div class="container-icones">
                             <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos Construtores:</strong>
-                            <span>@Model.TitulosConstrutores</span>
+                            <span>@Model.Conquistas?.QtdTitulosConstrutores</span>
                             <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos Pilotos:</strong>
-                            <span>@Model.TitulosPilotos</span>
+                            <span>@Model.Conquistas?.QtdTitulosPilotos</span>
                             <strong><img id="" src="~/img/Ico_Bandeirada.png" class="" alt="logo" /> GrandesPremios:</strong>
-                            <span>@Model.GrandesPremios</span>
+                            <span>@Model.Conquistas?.QtdGrandesPremios</span>
                             <strong><img id="" src="~/img/Ico_Vitorias.png" class="" alt="logo" /> Vitórias:</strong>
-                            <span>@Model.Vitorias</span>
+                            <span>@Model.Conquistas?.QtdVitorias</span>
                             <strong><img id="" src="~/img/Ico_Podios.png" class="" alt="logo" /> Pódios:</strong>
-                            <span>@Model.Podios</span>
+                            <span>@Model.Conquistas?.QtdPodios</span>
                             <strong><img id="" src="~/img/Ico_PolePosition.png" class="" alt="logo" /> Pole Position:</strong>
-                            <span>@Model.PolePosition</span>
+                            <span>@Model.Conquistas?.QtdPolePosition</span>
                             <strong><img id="" src="~/img/Ico_VoltaRapida.png" class="" alt="logo" /> Voltas Rápidas:</strong>
-                            <span>@Model.VoltasRapidas</span>
+                            <span>@Model.Conquistas?.QtdVoltasRapidas</span>
                         </div>
                     </div>
                 </div>
@@ -170,6 +160,4 @@
             </div>
             
         </div>
-        <script src="~/js/site.js"></script>        
-    </body>
-</html5>
+         

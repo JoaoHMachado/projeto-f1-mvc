@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using ProjetoMVC.DTO;
 using ProjetoMVC.Models;
+using ProjetoMVC.ModelsEF;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -10,26 +13,110 @@ namespace ProjetoMVC.Controllers
     {
         private readonly ILogger<EquipesController> _logger;
 
-        public EquipesModel equipesModel { get; set; }
+
         public EquipesController(ILogger<EquipesController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet(template:"")]
-        public IActionResult Equipes(int IdEquipe)
+        public async Task<IActionResult> EquipesAsync(int pIdEquipe)
         {
-            //IdEquipe = 1;
             var buscaEquipe = new EquipesModel();
-            using var connection = new SqlConnection("Data Source=Note-JP;Initial Catalog=Formula1;User ID=sa;Password=toppen;Trust Server Certificate=True");
+            using var connection = new SqlConnection(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
+            connection.Open();
+            var cmd = connection.CreateCommand();
+
+            cmd.CommandText = $"SELECT     " +
+                $"A.IdEquipe,    " +
+                $"NomeEquipe,    " +
+                $"ModeloCarro,    " +
+                $"FabricanteMotor,    " +
+                $"NomeChefe,    " +
+                $"MAX(CASE WHEN PilotoNum = 1 THEN NomePiloto ELSE NULL END) AS NomePiloto1,    " +
+                $"MAX(CASE WHEN PilotoNum = 1 THEN NacionalidadePiloto ELSE NULL END) AS NacionalidadePiloto1,    " +
+                $"MAX(CASE WHEN PilotoNum = 2 THEN NomePiloto ELSE NULL END) AS NomePiloto2,    " +
+                $"MAX(CASE WHEN PilotoNum = 2 THEN NacionalidadePiloto ELSE NULL END) AS NacionalidadePiloto2,   " +
+                $" QtdGrandesPremios,    " +
+                $"QtdTitulosConstrutores,    " +
+                $"QtdTitulosPilotos,    " +
+                $"QtdVitorias,    " +
+                $"QtdPodios,    " +
+                $"QtdPolePosition,    " +
+                $"QtdVoltasRapidasFROM     " +
+                $"Formula1.dbo.Equipes AS A    " +
+                $"INNER JOIN Formula1.dbo.Carros AS B ON A.IdEquipe = B.IdEquipe    " +
+                $"INNER JOIN Formula1.dbo.Chefes AS C ON A.IdEquipe = C.IdEquipe    " +
+                $"INNER JOIN         " +
+                $"(SELECT             " +
+                    $"IdEquipe,            " +
+                    $"NomePiloto,            " +
+                    $"NacionalidadePiloto,            " +
+                    $"ROW_NUMBER() OVER (PARTITION BY IdEquipe ORDER BY NomePiloto) AS PilotoNum         " +
+                    $"FROM             " +
+                        $"Formula1.dbo.Pilotos        ) AS D ON A.IdEquipe = D.IdEquipe    " +
+               $"INNER JOIN Formula1.dbo.Conquistas AS E ON A.IdEquipe = E.IdEquipeWHERE     A.IdEquipe = '{pIdEquipe}' " +
+               $"GROUP BY    " +
+                    $"A.IdEquipe,    " +
+                    $"NomeEquipe,    " +
+                    $"ModeloCarro,    " +
+                    $"FabricanteMotor,    " +
+                    $"NomeChefe,    " +
+                    $"QtdGrandesPremios,    " +
+                    $"QtdTitulosConstrutores,    " +
+                    $"QtdTitulosPilotos,    " +
+                    $"QtdVitorias,    " +
+                    $"QtdPodios,    " +
+                    $"QtdPolePosition,    " +
+                    $"QtdVoltasRapidas";
+            var dbContext = new Formula1Context();
+            var model = new EquipeModelo();
+            var equipeModel = await dbContext
+                .Equipes
+                .Include(e => e.Carros)
+                .Include(e => e.Chefes)
+                .Include(e => e.Pilotos)
+                .Include(e => e.Conquista)
+                .SingleOrDefaultAsync(e => e.IdEquipe.Equals(pIdEquipe));
+            if (equipeModel != null)
+            {
+                model.Equipe = equipeModel;
+                model.Carros = equipeModel?.Carros.First();
+                model.Chefes = equipeModel?.Chefes.First();
+                model.Conquistas = equipeModel?.Conquista.First();
+
+                // Verifique se as propriedades Pilotos estão inicializadas
+                if (model.Pilotos == null)
+                {
+                    model.Pilotos = new List<Piloto>();
+                }
+
+                if (equipeModel.Pilotos != null)
+                {
+                    foreach (var piloto in equipeModel.Pilotos)
+                    {
+                        model.Pilotos.Add(piloto);
+                    }
+                }
+            }
+
+            return View(model);
+
+
+            /*
+                             model.Equipe.IdEquipe = equipeModel.IdEquipe;
+                model.Equipe.NomeEquipe = equipeModel.NomeEquipe;
+            var buscaEquipe = new EquipesModel();
+            using var connection = new SqlConnection(Environment.GetEnvironmentVariable("CONNECTION_STRING"));
             connection.Open();
             var cmd = connection.CreateCommand();
             cmd.CommandText = $"Select * from Equipes where EquipeID = '{IdEquipe}'";
             var dataReader = cmd.ExecuteReader();
 
+            
             if (dataReader.Read())
             {
-                buscaEquipe.EquipeID             =  dataReader["EquipeID"].ToString();
+                buscaEquipe.EquipeID             = dataReader["EquipeID"].ToString();
                 buscaEquipe.NomeEquipe           = dataReader["NomeEquipe"].ToString();
                 buscaEquipe.Construtor           = dataReader["Construtor"].ToString();
                 buscaEquipe.NomeChefe            = dataReader["NomeChefe"].ToString();
@@ -47,7 +134,7 @@ namespace ProjetoMVC.Controllers
                 buscaEquipe.PolePosition         = dataReader["QtdPolePosition"].ToString();
                 buscaEquipe.VoltasRapidas        = dataReader["QtdVoltasRapidas"].ToString();
             }
-            return View(buscaEquipe);
+            */
         }
 
         public IActionResult Privacy()

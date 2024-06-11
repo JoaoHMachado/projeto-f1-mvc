@@ -120,5 +120,11 @@ strong, span{
 
 .imgLoading {
     max-width: 15%;
-    max-height: 15%; 
+    max-height: 15%;
+
+}
+
+.imgLogoF1 {
+    margin-top: 3vh;
+    height: 10vh;
 }
