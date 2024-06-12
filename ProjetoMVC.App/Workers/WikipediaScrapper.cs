@@ -37,7 +37,7 @@ namespace ProjetoMVC.App.Workers
             }
         }
         
-        public async Task GetDadosWikipedia()
+        private async Task GetDadosWikipedia()
         {
             try
             {
@@ -116,7 +116,7 @@ namespace ProjetoMVC.App.Workers
             while (!stoppingToken.IsCancellationRequested)
             {
                 await GetDadosWikipedia();
-                await Task.Delay(60000 * 60 * 24);
+                await Task.Delay(60000 * 60 * 24, stoppingToken);
             }
         }
     }

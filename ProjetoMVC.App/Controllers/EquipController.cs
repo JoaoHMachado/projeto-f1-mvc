@@ -10,38 +10,30 @@ namespace ProjetoMVC.App.Controllers
     public class EquipController(ILogger<EquipController> logger, IRepository repository, IEquipServices equipServices) : Controller
     {
         private readonly ILogger<EquipController> _logger = logger;
-        private readonly IRepository _repository = repository;
-        private readonly IEquipServices _equipServices = equipServices;
-
 
         [HttpGet]
+        [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any)]
         public async Task<IActionResult> Home()
         {
-
-            var equips = await _equipServices.GetAllEquipsAsync();
+            var equips = await equipServices.GetAllEquipsAsync();
             return View(equips);
-
- 
         }
 
+        
+        [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any)]
         [HttpGet("/equipe/{slug}")]
         public async Task<IActionResult> Details(string slug)
         {
-            var details = await _equipServices.GetEquipBySlugAsync(slug);
-            
+            var details = await equipServices.GetEquipBySlugAsync(slug);
             if (details == null)
-            {
                 return View("NotFound");
-            }
 
             return View(new DetailsModel
             {
                 SelectedEquip = details,
-                Equips = await _equipServices.GetAllEquipsAsync()
+                Equips = await equipServices.GetAllEquipsAsync()
             });
         }
-        
-    
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

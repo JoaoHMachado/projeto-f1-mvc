@@ -16,6 +16,7 @@ builder
         .AddTransientServices()
         .AddSingletonServices()
         .ConfigureControllers()
+        .AddResponseCaching()
         .AddDatabaseContext()
         .AddRepositoryPattern();
 
@@ -28,6 +29,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseResponseCaching();
 app.UseRouting();
 app.MapControllerRoute(
     name: "default",

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjetoMVC.App.Repository;
 using ProjetoMVC.App.Services;
@@ -29,7 +30,13 @@ public static class Configuration
     public static IServiceCollection ConfigureControllers(this IServiceCollection services)
     {
         services
-            .AddControllersWithViews()
+            .AddControllersWithViews(options =>
+            {
+                options.CacheProfiles.Add("Default", new CacheProfile
+                {
+                    Duration = 3600,
+                });
+            })
             .AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
