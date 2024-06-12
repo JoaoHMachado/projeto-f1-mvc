@@ -1,0 +1,13 @@
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\bin\Debug\net8.0\ProjetoMVC.Data.deps.json
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\bin\Debug\net8.0\ProjetoMVC.Data.runtimeconfig.json
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\bin\Debug\net8.0\ProjetoMVC.Data.dll
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\bin\Debug\net8.0\ProjetoMVC.Data.pdb
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.csproj.AssemblyReference.cache
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.csproj.CoreCompileInputs.cache
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.sourcelink.json
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.dll
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\refint\ProjetoMVC.Data.dll
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.pdb
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ProjetoMVC.Data.genruntimeconfig.cache
+D:\repos\aula-mvc-jp-projeto-f1\ProjetoMVC.Data\obj\Debug\net8.0\ref\ProjetoMVC.Data.dll

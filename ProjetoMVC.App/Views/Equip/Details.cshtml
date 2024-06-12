@@ -1,0 +1,54 @@
+﻿@model ProjetoMVC.App.DTO.DetailsModel
+@{
+    ViewData["Title"] = "Detalhes";
+
+}
+
+<div class="imgContainerGeral">
+    <div id="containerPanel" class="containerPanel" style="box-shadow: @Model.SelectedEquip.CorScuderia">
+        <div class="informacoes">
+            <div class="card-img-top">
+                <img id="" src="@Model.SelectedEquip.UrlFotoScuderia" class="imgLogoScuderia" alt="logo" />
+                <img id="" src="@Model.SelectedEquip.UrlFotoPilotos" class="imgPilotos" alt="logo" />
+            </div>
+            <div class="container-geral-dados">
+                <div class="container-dados">
+                    <strong>Equipe: </strong>
+                    <span>@Model.SelectedEquip.NomeEquipe</span>
+                    <strong>Chefe:  </strong>
+                    <span>@Model.SelectedEquip.Cheves.First().NomeChefe</span>
+                    @{ 
+                        foreach (var piloto in Model.SelectedEquip.Pilotos)
+                        {
+                            <strong>Piloto: </strong>
+                            <span>@piloto.NomePiloto, @piloto.NacionalidadePiloto</span>
+                        }
+                    } 
+                    <strong>Carro:  </strong>
+                    <span>@Model.SelectedEquip.Carros?.First().ModeloCarro)</span>
+                    <strong>Construtor: </strong>
+                    <span>@Model.SelectedEquip.Carros?.First().FabricanteMotor</span>
+                </div>
+                <div class="container-icones">
+                    <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos Construtores:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdTitulosConstrutores</span>
+                    <strong><img id="" src="~/img/Ico_Trofeu.png" class="" alt="logo" /> Títulos Pilotos:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdTitulosPilotos</span>
+                    <strong><img id="" src="~/img/Ico_Bandeirada.png" class="" alt="logo" /> GrandesPremios:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdGrandesPremios</span>
+                    <strong><img id="" src="~/img/Ico_Vitorias.png" class="" alt="logo" /> Vitórias:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdVitorias</span>
+                    <strong><img id="" src="~/img/Ico_Podios.png" class="" alt="logo" /> Pódios:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdPodios</span>
+                    <strong><img id="" src="~/img/Ico_PolePosition.png" class="" alt="logo" /> Pole Position:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdPolePosition</span>
+                    <strong><img id="" src="~/img/Ico_VoltaRapida.png" class="" alt="logo" /> Voltas Rápidas:</strong>
+                    <span>@Model.SelectedEquip.Conquista?.First().QtdVoltasRapidas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    @await Html.PartialAsync("Home", Model.Equips)
+    <hr/>
+</div>
