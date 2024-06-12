@@ -9,9 +9,17 @@ public partial class Equipe
 
     public string NomeEquipe { get; set; } = null!;
 
+    public string? SlugEquipe { get; set; }
+
+    public string? UrlFotoScuderia { get; set; }
+
+    public string? CorScuderia { get; set; }
+
+    public string? UrlFotoPilotos { get; set; }
+
     public virtual ICollection<Carro> Carros { get; set; } = new List<Carro>();
 
-    public virtual ICollection<Chefe> Chefes { get; set; } = new List<Chefe>();
+    public virtual ICollection<Chefe> Cheves { get; set; } = new List<Chefe>();
 
     public virtual ICollection<Conquista> Conquista { get; set; } = new List<Conquista>();
 

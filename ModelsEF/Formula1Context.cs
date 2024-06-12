@@ -27,6 +27,8 @@ public partial class Formula1Context : DbContext
 
     public virtual DbSet<Piloto> Pilotos { get; set; }
 
+    public virtual DbSet<ViewEquipe> ViewEquipes { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=Formula1;Integrated Security=True;Trust Server Certificate=True");
@@ -35,7 +37,7 @@ public partial class Formula1Context : DbContext
     {
         modelBuilder.Entity<Carro>(entity =>
         {
-            entity.HasKey(e => e.IdCarro).HasName("PK__Carros__6C9FE07B97369466");
+            entity.HasKey(e => e.IdCarro).HasName("PK__Carros__6C9FE07B96D3F6D6");
 
             entity.Property(e => e.FabricanteMotor)
                 .HasMaxLength(100)
@@ -46,25 +48,25 @@ public partial class Formula1Context : DbContext
 
             entity.HasOne(d => d.IdEquipeNavigation).WithMany(p => p.Carros)
                 .HasForeignKey(d => d.IdEquipe)
-                .HasConstraintName("FK__Carros__IdEquipe__18EBB532");
+                .HasConstraintName("FK__Carros__IdEquipe__4D5F7D71");
         });
 
         modelBuilder.Entity<Chefe>(entity =>
         {
-            entity.HasKey(e => e.IdChefe).HasName("PK__Chefes__F59E6E08617C70E8");
+            entity.HasKey(e => e.IdChefe).HasName("PK__Chefes__F59E6E08D430AE32");
 
             entity.Property(e => e.NomeChefe)
                 .HasMaxLength(100)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdEquipeNavigation).WithMany(p => p.Chefes)
+            entity.HasOne(d => d.IdEquipeNavigation).WithMany(p => p.Cheves)
                 .HasForeignKey(d => d.IdEquipe)
-                .HasConstraintName("FK__Chefes__IdEquipe__1BC821DD");
+                .HasConstraintName("FK__Chefes__IdEquipe__503BEA1C");
         });
 
         modelBuilder.Entity<Conquista>(entity =>
         {
-            entity.HasKey(e => e.IdConquista).HasName("PK__Conquist__84DCA51CB9C7472D");
+            entity.HasKey(e => e.IdConquista).HasName("PK__Conquist__84DCA51C08A6628E");
 
             entity.Property(e => e.QtdGrandesPremios)
                 .HasMaxLength(100)
@@ -90,15 +92,29 @@ public partial class Formula1Context : DbContext
 
             entity.HasOne(d => d.IdEquipeNavigation).WithMany(p => p.Conquista)
                 .HasForeignKey(d => d.IdEquipe)
-                .HasConstraintName("FK__Conquista__IdEqu__1EA48E88");
+                .HasConstraintName("FK__Conquista__IdEqu__531856C7");
         });
 
         modelBuilder.Entity<Equipe>(entity =>
         {
-            entity.HasKey(e => e.IdEquipe).HasName("PK__Equipes__D80524129F7A612D");
+            entity.HasKey(e => e.IdEquipe).HasName("PK__Equipes__D8052412321364EF");
 
+            entity.HasIndex(e => e.SlugEquipe, "UQ__Equipes__CE5716260A058829").IsUnique();
+
+            entity.Property(e => e.CorScuderia)
+                .HasMaxLength(200)
+                .IsUnicode(false);
             entity.Property(e => e.NomeEquipe)
                 .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.SlugEquipe)
+                .HasMaxLength(200)
+                .IsUnicode(false);
+            entity.Property(e => e.UrlFotoPilotos)
+                .HasMaxLength(200)
+                .IsUnicode(false);
+            entity.Property(e => e.UrlFotoScuderia)
+                .HasMaxLength(200)
                 .IsUnicode(false);
         });
 
@@ -161,7 +177,7 @@ public partial class Formula1Context : DbContext
 
         modelBuilder.Entity<Piloto>(entity =>
         {
-            entity.HasKey(e => e.IdPiloto).HasName("PK__Pilotos__DB35379F7C170FCE");
+            entity.HasKey(e => e.IdPiloto).HasName("PK__Pilotos__DB35379FD5CEF028");
 
             entity.Property(e => e.NacionalidadePiloto)
                 .HasMaxLength(50)
@@ -169,10 +185,27 @@ public partial class Formula1Context : DbContext
             entity.Property(e => e.NomePiloto)
                 .HasMaxLength(100)
                 .IsUnicode(false);
+            entity.Property(e => e.UrlFotoPiloto)
+                .HasMaxLength(50)
+                .IsUnicode(false);
 
             entity.HasOne(d => d.IdEquipeNavigation).WithMany(p => p.Pilotos)
                 .HasForeignKey(d => d.IdEquipe)
-                .HasConstraintName("FK__Pilotos__IdEquip__2180FB33");
+                .HasConstraintName("FK__Pilotos__IdEquip__4A8310C6");
+        });
+
+        modelBuilder.Entity<ViewEquipe>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("ViewEquipes");
+
+            entity.Property(e => e.FabricanteMotor)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.ModeloCarro)
+                .HasMaxLength(100)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);

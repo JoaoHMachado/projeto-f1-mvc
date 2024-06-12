@@ -11,6 +11,8 @@ public partial class Piloto
 
     public string NacionalidadePiloto { get; set; } = null!;
 
+    public string? UrlFotoPiloto { get; set; }
+
     public int? IdEquipe { get; set; }
 
     public virtual Equipe? IdEquipeNavigation { get; set; }
