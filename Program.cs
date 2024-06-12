@@ -1,15 +1,17 @@
 using ProjetoMVC;
 using ProjetoMVC.Classes;
+using ProjetoMVC.Repository;
+using ProjetoMVC.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 DotEnv.Load(builder);
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHostedService<GetWikipedia>();
 
-builder.Services.AddHostedService<GetWikipedia> ();
-
-//GetWikipedia getWikipedia = new GetWikipedia();
-//await getWikipedia.GetDadosWikipedia();
+builder.Services.AddScoped<IRepository, Repository>();
+builder.Services.AddScoped<IEquipServices, EquipServices>();
 
 var app = builder.Build();
 
