@@ -1,0 +1,29 @@
+﻿@model List<ProjetoMVC.Data.ModelsEF.Equipe>
+@{
+    ViewData["Title"] = "Home Page";
+   
+}
+ 
+    <div class="imgContainerGeral">
+        <div class="imgContainerDireita">
+            @foreach (var equip in Model.Where(e=>  e.UrlImagemExibicao!.ToUpper().Contains("RF1")))
+            {
+                <div>
+                    <a href="/equipe/@equip.SlugEquipe">
+                        <img id="Alpine" src="@equip.UrlImagemExibicao" class="imgContainer" alt="logo"/>
+                    </a>
+                </div>
+            }
+        </div>
+        <div class="imgContainerEsquerda">
+            @foreach (var equip in Model.Where(e=> !e.UrlImagemExibicao!.ToUpper().Contains("RF1")))
+            {
+                <div>
+                    <a href="/equipe/@equip.SlugEquipe">
+                        <img id="Alpine" src="@equip.UrlImagemExibicao" class="imgContainer" alt="logo" href="/equipe/@equip.SlugEquipe"/>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+         
